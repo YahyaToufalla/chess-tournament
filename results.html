@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Results</title>
+</head>
+<body>
+    <h1>Match Results</h1>
+    {% if results %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Match</th>
+                    <th>Winner</th>
+                    <th>Loser</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for (round_num, match_num), result in results.items() %}
+                    <tr>
+                        <td>{{ round_num }}</td>
+                        <td>{{ match_num }}</td>
+                        <td>{{ result['winner'] }}</td>
+                        <td>{{ result['loser'] }}</td>
+                        <td>{{ result['date'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No results available.</p>
+    {% endif %}
+</body>
+</html>

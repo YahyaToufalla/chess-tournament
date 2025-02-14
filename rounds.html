@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Pairings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .round {
+            margin-bottom: 20px;
+        }
+        .round-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .match {
+            font-size: 1.1em;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center my-5">Round Pairings</h1>
+
+    {% for round_num, pairings in rounds %}
+        <div class="round">
+            <div class="round-header">
+                Round {{ round_num }}
+            </div>
+            <ul class="list-group">
+                {% for match in pairings %}
+                    <li class="list-group-item match">
+                        {{ match[0] }} vs {{ match[1] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Submit Result</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('show_participants') }}">Participants</a></li>
+                <li><a href="{{ url_for('show_rounds') }}">Rounds</a></li>
+                <li><a href="{{ url_for('show_results') }}">Results</a></li>
+                <li><a href="{{ url_for('show_classification') }}">Classification</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Submit Result for Round {{ round_num }}, Match {{ match_num }}</h2>
+        <form method="POST">
+            <label for="winner">Winner:</label>
+            <select name="winner" id="winner">
+                <option value="{{ player1 }}">{{ player1 }}</option>
+                <option value="{{ player2 }}">{{ player2 }}</option>
+            </select>
+            <br>
+            <label for="loser">Loser:</label>
+            <select name="loser" id="loser">
+                <option value="{{ player1 }}">{{ player1 }}</option>
+                <option value="{{ player2 }}">{{ player2 }}</option>
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>

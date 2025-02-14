@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Tournament</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Chess Tournament</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('show_participants') }}">Participants</a></li>
+                <li><a href="{{ url_for('show_rounds') }}">Rounds</a></li>
+                <li><a href="{{ url_for('show_results') }}">Results</a></li>
+                <li><a href="{{ url_for('show_classification') }}">Classification</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Daily Summary</h2>
+        {% if daily_summary %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Match</th>
+                    <th>Winner</th>
+                    <th>Loser</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for match in daily_summary %}
+                <tr>
+                    <td>{{ match['round_num'] }}</td>
+                    <td>{{ match['match_num'] }}</td>
+                    <td>{{ match['winner'] }}</td>
+                    <td>{{ match['loser'] }}</td>
+                    <td>{{ match['date'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No results for today.</p>
+        {% endif %}
+    </main>
+</body>
+</html>

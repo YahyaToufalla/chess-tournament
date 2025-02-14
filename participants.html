@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <h1>Participants</h1>
+    </header>
+    <main>
+        <section class="participant-section">
+            <div class="participant-grid">
+                {% for participant in participants %}
+                <div class="participant-card animate__animated animate__fadeInUp">
+                    <div class="participant-image">
+                        <img src="https://via.placeholder.com/100" alt="{{ participant }}">
+                    </div>
+                    <div class="participant-info">
+                        <h3>{{ participant }}</h3>
+                        <p class="participant-class">{{ participant_classes.get(participant, "N/A") }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+

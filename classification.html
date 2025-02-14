@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Masters Tournament - Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Classification</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Class</th>
+                <th>Participant</th>
+                <th>Pld</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in classification %}
+                <tr>
+                    <td>{{ entry['rank'] }}</td>
+                    <td>{{ entry['class'] }}</td>
+                    <td>{{ entry['participant'] }}</td>
+                    <td>{{ entry['matches_played'] }}</td>
+                    <td>{{ entry['wins'] }}</td>
+                    <td>{{ entry['draws'] }}</td>
+                    <td>{{ entry['loses'] }}</td>
+                    <td>{{ entry['points'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
+
